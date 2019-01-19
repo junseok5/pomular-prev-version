@@ -1,0 +1,397 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+}
+
+header {
+  position: absolute;
+  width: 100%;
+  /* height: 56px; */
+  height: 56px;
+  left: 0;
+  top: 0;
+  background-color: #333333;
+  color: #fff;
+}
+
+header .logo {
+  padding-top: 8px;
+  font-family: Noto Serif,serif;
+  font-size: 32px;
+  font-weight: bold;
+  user-select: none;
+  cursor: pointer;
+}
+
+main {
+  margin-top: 64px;
+}
+
+main ul {
+  list-style: none;
+}
+
+main li {
+  display: inline-block;
+  font-size: 18px;
+  width: 70px;
+  height: 70px;
+  border-radius: 4px;
+  background-color: #4C4C4C;
+  cursor: pointer;
+}
+
+main .selected {
+  background-color: #BDBDBD;
+  transition: all 0.4s;
+}
+
+main .video-view {
+  height: 600px;
+  border-bottom: 1px solid #333333;
+}
+
+.video-view video {
+  height: 600px;
+}
+
+.file-input {
+  width: 264px;
+  margin: 0 auto;
+}
+
+.selectFile {
+  float: left;
+  margin: 20px 14px;
+}
+
+.selectFile label {
+  position:relative;
+  cursor:pointer;
+  display:inline-block;
+  vertical-align:middle;
+  overflow:hidden;
+  width:100px;
+  height:34px;
+  background: #212121;
+  color:#fff;
+  text-align:center;
+  line-height:30px;
+  border-radius: 4px;
+}
+
+.drive-file {
+  float: none;
+}
+.drive-file label {
+  width: 318px;
+}
+.selectFile img {
+  width: 30px;
+}
+.selectFile label input {
+  position:absolute;
+  width:0;
+  height:0;
+  overflow:hidden;
+}
+.selectFile label:hover {
+  background: #7B7B7B;
+}
+.selectFile label:active {
+  background-color: #575757;
+}
+
+.selectFile input[type=text] {
+  vertical-align:middle;
+  display:inline-block;
+  width:auto;
+  height:28px;
+  line-height:28px;
+  font-size:11px;
+  padding:0;
+  border:0;
+  border:1px solid #777;
+  border-radius: 4px;
+}
+
+footer {
+  /* text-align: right; */
+  font-size: 11px;
+  color: #8C8C8C;
+  margin-top: 64px;
+}
+
+#view {
+  /* position: relative;
+  width: 640px;
+  max-height: 640px; */
+  margin: 0 auto;
+}
+
+.media-view {
+  position: relative;
+  background-color: #000;
+  /* left: 0;
+  top: 0; */
+  width: 800px;
+  height: auto;
+  margin: 0 auto;
+  z-index: 10;
+
+}
+
+.media {
+  width: 100%;
+  min-height: 250px;
+}
+
+.media video {
+  width: 100%;
+  height: auto;
+  opacity: 1.0;
+  /* left: 0;
+  top: 0; */
+}
+
+.sub-view {
+  position: absolute;
+  width: 70%;
+  left: 50%;
+  bottom: 8px;
+  color: #fff;
+  font-size: 40px;
+  transform: translateX(-50%);
+}
+
+.section-view {
+  position: absolute;
+  color: #fff;
+  font-size: 20px;
+  left: 4px;
+  top: 4px;
+}
+.section-view .current-section {
+  float: left;
+}
+.section-view .total-section {
+  float: left;
+}
+
+.section-time {
+  /* background: linear-gradient( to bottom, #5D5D5D, #BDBDBD); */
+  position: absolute;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  left: 50%;
+  top: 4px;
+  transform: translateX(-50%);
+  /* border-radius: 2px; */
+  opacity: 0.9;
+}
+.section-time .current-time {
+  float: left;
+}
+.section-time .total-time {
+  float: left;
+}
+
+.control-menu {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+.control-menu .menu-icon {
+  width: 28px;
+  height: 4px;
+  margin: 3px 0;
+  border-radius: 2px;
+  background-color: #1DDB16;
+  opacity: 0.8;
+}
+
+.control-view {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.control-view img {
+  width: 80px;
+}
+.control-view .forward {
+  float: left;
+  cursor: pointer;
+}
+.control-view .stop-play {
+  float: left;
+  margin: 0 32px;
+  cursor: pointer;
+}
+.control-view .backward {
+  float: left;
+  cursor: pointer;
+}
+.control-view .gradient {
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+.control-subtitle-view {
+  position: absolute;
+  left: 7px;
+  bottom: 5px;
+}
+.control-subtitle-view .cs-text {
+  float: left;
+  color: #fff;
+  font-weight: bold;
+  margin-right: 4px;
+}
+
+.originScreen {
+  display: none;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  opacity: 0.4;
+}
+
+.originScreen img {
+  width: 40px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 21px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #3CD964;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #3CD964;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(18px);
+  -ms-transform: translateX(18px);
+  transform: translateX(18px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.screen-size {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  cursor: pointer;
+}
+.screen-size img {
+  width: 25px;
+}
+
+/* 공통 클래스 */
+.division {
+  float: left;
+}
+
+@media screen and (max-width: 800px) {
+  /* .media-view {
+    width: 100%;
+  }
+  .control-view .stop-play {
+    margin: 0 16px;
+  }
+
+  .sub-view {
+    font-size: 30px;
+  }
+
+  .material-icons {
+    font-size: 40px;
+  }
+
+  .view-icon-size {
+    font-size: 30px;
+  } */
+}
+
+@media screen and (max-width: 400px) {
+  main .video-view {
+    height: 300px;
+  }
+
+  .video-view video {
+    width: 100%;
+    height: 300px;
+  }
+  /* .media {
+    min-height: 100px;
+  }
+  .menu ul {
+    padding: 0;
+  }
+  .menu li {
+    width: 150px;
+  }
+
+  .sub-view {
+    font-size: 21px;
+  }
+
+  .material-icons {
+    font-size: 30px;
+  }
+
+  .view-icon-size {
+    font-size: 25px;
+  } */
+
+}

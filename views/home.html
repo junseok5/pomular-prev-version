@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width = device-width, initial-scale = 1,
+       maximum-scale = 1, minimum-scale = 1, user-scalable = no, minimal-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>Pomular</title>
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="./css/lib/fonts.googleapis.css" />
+    <link rel="stylesheet" href="./css/home.css" />
+</head>
+
+<body>
+    <header>
+        <div class="logo">Pomular</div>
+    </header>
+
+    <main>
+        <div class="video-view">
+            <div id="view"></div>
+            <video controls>
+                <!-- <source src="https://drive.google.com/uc?export=download&amp;id=1bqw26lGNNV34YmIY1Z-1uLvIbgBQ-ov6" type="video/webm" /> -->
+                <!-- <source src="https://lh3.googleusercontent.com/4Rl8MoABDETGA3EApJQrfVbyk6yhnQMsXFX6Jx5SyDAzdevFH1jVNPpCLSOsRPRvxqHg7Q00WLe_0IPRVwDWzeabKt1czw4-QIpOZzgHdRkUiTltxBXO_7-OevQp1e8bxc5_zG23fB29060v_GcG3R1i1G6atvlCwrR0z9syGS42j6HfC4tYu1mHU1KMgCG4kSJ4sN7YzdcCZxvNPUZ0XbOu2WaPTnB3QjUtZDR9f-BYWqncE4Y8K6Vcg1cnQDY3K1FqTb1qMKSJHwgrDpIDLbArLl9wRX9bGwFLVRot3nNSLZMvJQliqDwTZ1I-DFUaGMStUnD8DKKQPzENBQEw66UBh3ALTlvQ7TcGdvYZHOVDKK7MpcPpG4KvObuf_WGhKGzobHg8lAy9JfjE1hTBdKVCKI0utbnt63Hzs8ZTi0HLvvSzUzG2_rAO_s4BvFJCEk8cOq6bt8jiB9PxBMcfqhnd5a1AeibLmeNJPPmTCrjkZ8WTE4Jt5DF_nl2uCZD6pX6N4Tkm3jDQ02RJoLoEAWRWsuwFpo5C7p8jrL7fxJx9heVxjM-i5Qtpb8cwWH6Sloo-oSiF5XIr1jhes1PVEYjcuwg4lX_mIcbHPfm95-C5ztsRkMnq_uWLz-FE_33w2zLN5vMOfUT23Kz13ptJgfiGHIlhpRiZ=m22?cpn=6ExJi4TxxRC5Vkx7&c=WEB_EMBEDDED_PLAYER&cver=20180628"
+                    type="video/webm" /> -->
+            </video>
+            <!-- https://lh3.googleusercontent.com/4Rl8MoABDETGA3EApJQrfVbyk6yhnQMsXFX6Jx5SyDAzdevFH1jVNPpCLSOsRPRvxqHg7Q00WLe_0IPRVwDWzeabKt1czw4-QIpOZzgHdRkUiTltxBXO_7-OevQp1e8bxc5_zG23fB29060v_GcG3R1i1G6atvlCwrR0z9syGS42j6HfC4tYu1mHU1KMgCG4kSJ4sN7YzdcCZxvNPUZ0XbOu2WaPTnB3QjUtZDR9f-BYWqncE4Y8K6Vcg1cnQDY3K1FqTb1qMKSJHwgrDpIDLbArLl9wRX9bGwFLVRot3nNSLZMvJQliqDwTZ1I-DFUaGMStUnD8DKKQPzENBQEw66UBh3ALTlvQ7TcGdvYZHOVDKK7MpcPpG4KvObuf_WGhKGzobHg8lAy9JfjE1hTBdKVCKI0utbnt63Hzs8ZTi0HLvvSzUzG2_rAO_s4BvFJCEk8cOq6bt8jiB9PxBMcfqhnd5a1AeibLmeNJPPmTCrjkZ8WTE4Jt5DF_nl2uCZD6pX6N4Tkm3jDQ02RJoLoEAWRWsuwFpo5C7p8jrL7fxJx9heVxjM-i5Qtpb8cwWH6Sloo-oSiF5XIr1jhes1PVEYjcuwg4lX_mIcbHPfm95-C5ztsRkMnq_uWLz-FE_33w2zLN5vMOfUT23Kz13ptJgfiGHIlhpRiZ=m22?cpn=6ExJi4TxxRC5Vkx7&c=WEB_EMBEDDED_PLAYER&cver=20180628 -->
+        </div>
+        <div class="file-input">
+            <div class="selectFile">
+                <label>
+                    <i class="material-icons icon-normal">movie</i> 동영상
+                    <input type="file" id="mediaFile" accept="video" onchange="settingObjectURL()" />
+                </label>
+            </div>
+            <div class="selectFile">
+                <label>
+                    <i class="material-icons icon-normal">subtitles</i> 자막
+                    <input type="file" accept=".srt, .smi" onchange="readSRT(event)" />
+                </label>
+            </div>
+        </div>
+        <div class="selectFile drive-file">
+            <label>
+                <img src="./img/google-drive.png" align="center" draggable="false" /> Google drive 동영상 불러오기
+            </label>
+        </div>
+
+        <!-- <ul>
+            <li class="video-mode selected" onclick="setVideoMode()">비디오 파일</li>
+            <li class="audio-mode" onclick="setAudioMode()">
+                <div id="select-subtitle" class="selectFile">
+                    <label id="skipLabel">
+                        Import subtitle file(txt)
+                        <input type="file" accept=".srt, .smi" onchange="readSRT(event)" />
+                    </label>
+                </div>
+            </li>
+        </ul> -->
+    </main>
+
+    <footer>
+        Copyright © 2018 Pomular<br />
+        <i class="material-icons icon-small">email</i> vkehrkrl82@gmail.com
+    </footer>
+    <!-- <div class="selectFile">
+          <label>
+             <img src="./img/playbutton.png" align="center" draggable="false" /> Play
+              <input type="file" id="mediaFile" accept="video/*" onchange="settingObjectURL()" />
+          </label>
+      </div> -->
+    <div id="view">
+        <!-- <video controls>
+              <source src="https://drive.google.com/uc?export=download&amp;id=1bqw26lGNNV34YmIY1Z-1uLvIbgBQ-ov6" type="video/webm" />
+          </video> -->
+        <!-- <div id="select-subtitle" class="selectFile">
+            <label id="skipLabel">
+              Import subtitle file(txt)
+              <input type="file" accept=".srt, .smi" onchange="readSRT(event)" />
+            </label>
+          </div> -->
+    </div>
+    <div class="mediaControl"></div>
+</body>
+<script src="js/home.js"></script>
+
+</html>
